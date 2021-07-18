@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--I did this so it will support for all devices-->
+        <link rel="apple-touch-icon" sizes="180x180" href="faviconfolder/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="faviconfolder/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="faviconfolder/favicon-16x16.png">
+        <link rel="manifest" href="faviconfolder/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    
+    <title>Word and Character Counter</title>
+    
+    <style>
+        body{
+            padding:100px 100px   /*  top ra button ko laagi    */
+        }
+
+        h1{
+            text-align: center;
+            background-color: #0067b0;
+            color:white;
+            padding: 10px;
+            margin: 0px;
+        }
+
+        textarea{
+            width: 99.55%;
+            border-color:#0067b0 ;
+            font-size: 15px;
+        }
+
+        p{
+            text-align: center;
+            background-color: #0067b0;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            padding: 10px;
+            margin: 0px;
+        }
+        h2{
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h2 style="color: red;"> Created By ShahRukh</h2>
+
+    <h1>Word and Character Counter</h1>
+    <textarea  id="textbox" cols="30" rows="10"></textarea>
+
+    <!-- <p> 0 words and 0 Characters </p> -->
+    <p>
+        <span id='word'>0</span> Words and <!-- yaha span kina liya vanai '0 ko values change gerna' -->
+        <span id='char'>0</span> Characters
+    </p>
+
+    <script>
+        let textbox=document.getElementById('textbox') // yaha text box laae select garai ko haami
+         
+
+        textbox.addEventListener('input',function(){  // for action fire
+            var text=this.value
+            //console.log(text)           //  to test whether it is working or not
+
+            let char=text.length;
+            //console.log(char)
+            document.getElementById('char').innerHTML=char; // yaha character count bhai haaloi 
+
+            text=text.trim();  // remove spaces from both sides
+            let word=text.split(' ');
+
+            let clean_List=word.filter(function(elementpass){
+                return elementpass !="";// yaha bata empty string removed bho from the array
+            });
+            //console.log(clean_List)  
+
+            document.getElementById('word').innerHTML=clean_List.length; // yaha word count bhai haaloi 
+
+
+            A=document.getElementById('char');
+            A.style.color='yellow';
+
+            B=document.getElementById('word');
+            B.style.color='yellow';
+
+        });
+        
+    </script> 
+   
+</body>
+</html>   
